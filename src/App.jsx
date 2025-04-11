@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const messageEndRef = useRef(null);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -39,6 +40,10 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
+
   return (
     <div className="chat-container">
       <div className="chat-window">
@@ -51,9 +56,8 @@ function App() {
               {msg.content}
             </div>
           ))}
-          {loading && (
-            <div className="chat-bubble bot">Typing...</div>
-          )}
+          {loading && <div className="chat-bubble bot">Typing...</div>}
+          <div ref={messageEndRef} />
         </div>
         <div className="chat-input-area">
           <input
