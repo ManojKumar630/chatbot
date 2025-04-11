@@ -60,14 +60,20 @@ function App() {
           <div ref={messageEndRef} />
         </div>
         <div className="chat-input-area">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Type your message..."
-            disabled={loading}
-          />
+      <input
+  type="text"
+  value={input}
+  onChange={(e) => setInput(e.target.value)}
+  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+  onFocus={() => {
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }, 300); // Slight delay after keyboard opens
+  }}
+  placeholder="Type your message..."
+  disabled={loading}
+/>
+
           <button onClick={handleSend} disabled={loading}>
             {loading ? "..." : "Send"}
           </button>
