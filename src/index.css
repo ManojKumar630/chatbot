@@ -120,11 +120,15 @@ body {
 /* -------------------------- */
 /* Mobile Responsive Styling */
 /* -------------------------- */
-
 @media (max-width: 768px) {
   .chat-window {
-    border-radius: 0;
+    height: 100dvh;
     padding: 1rem 0.5rem;
+    border-radius: 0;
+  }
+
+  .chat-messages {
+    padding-bottom: 80px; /* leave space for input bar */
   }
 
   .chat-bubble {
@@ -134,12 +138,28 @@ body {
   }
 
   .chat-input-area {
-    padding: 8px;
-    gap: 6px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    display: flex;
+    gap: 8px;
   }
 
-  .chat-input-area input,
+  .chat-input-area input {
+    flex: 1;
+    border-radius: 20px;
+    padding: 12px;
+  }
+
   .chat-input-area button {
-    font-size: 14px;
+    border-radius: 20px;
+    padding: 12px 20px;
   }
 }
