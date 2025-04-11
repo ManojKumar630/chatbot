@@ -134,18 +134,25 @@ body {
     padding: 10px 14px;
   }
 
+  /* Keep input and button in a row */
   .chat-input-area {
-    flex-direction: column;
+    flex-direction: row;
     gap: 8px;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+    background-color: #1e1e1e;
   }
 
   .chat-input-area input {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 20px;
   }
 
   .chat-input-area button {
-    width: 100%;
-    border-radius: 12px;
+    width: auto;
+    white-space: nowrap;
+    border-radius: 20px;
+    padding: 12px 16px;
   }
 }
