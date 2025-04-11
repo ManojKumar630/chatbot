@@ -123,12 +123,12 @@ body {
 @media (max-width: 768px) {
   .chat-window {
     height: 100dvh;
-    padding-bottom: 70px;
+    padding-bottom: 80px;
     border-radius: 0;
   }
 
   .chat-messages {
-    padding-bottom: 60px; /* leave space for input bar */
+    padding-bottom: 30px; /* leave space for input bar */
   }
 
   .chat-bubble {
